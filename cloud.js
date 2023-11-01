@@ -36,13 +36,12 @@ function deleteUser(index) {
         .then(response => {
             const cloudUsers = response.data;
             
-            // Check if the index is within the range of cloudUsers array
+            // Check index is within the range of cloud
             if (index >= 0 && index < cloudUsers.length) {
-                // Remove the user from the cloud storage by sending a DELETE request
-                const userIdToDelete = cloudUsers[index]._id; // Assuming each user object has an '_id' property
+                // Remove the user from the cloud
+                const userIdToDelete = cloudUsers[index]._id; // Assuming each user id
                 axios.delete(`https://crudcrud.com/api/d18064bc979b4643bf3be9dea5ef518b/appoinmentData/${userIdToDelete}`)
                     .then(() => {
-                        // User deleted from cloud storage, now refresh the UI
                         displayUsers();
                     })
                     .catch(err => {
@@ -65,13 +64,12 @@ function editUser(index) {
             .then(response => {
                 const cloudUsers = response.data;
 
-                // Check if the index is within the range of cloudUsers array
+                // Chek index is within the range of cloud
                 if (index >= 0 && index < cloudUsers.length) {
-                    // Update the user's email in the cloud storage by sending a PUT or PATCH request
-                    const userIdToUpdate = cloudUsers[index]._id; // Assuming each user object has an '_id' property
-                    axios.patch(`https://crudcrud.com/api/d18064bc979b4643bf3be9dea5ef518b/appoinmentData/${userIdToUpdate}`, { email: newEmail })
+                    // Update the user's email in the cloud storage 
+                    const userIdToUpdate = cloudUsers[index]._id; // Assuming each user object id
+                    axios.put(`https://crudcrud.com/api/d18064bc979b4643bf3be9dea5ef518b/appoinmentData/${userIdToUpdate}`, { email: newEmail })
                         .then(() => {
-                            // User email updated in cloud storage, now refresh the UI
                             displayUsers();
                         })
                         .catch(err => {

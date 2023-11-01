@@ -85,7 +85,6 @@ function editUser(index) {
     }
 }
 
-
 document.getElementById('userForm').addEventListener('submit', function (e) {
     e.preventDefault();
 

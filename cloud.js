@@ -2,10 +2,6 @@ function addUserToCloudStorage(user) {
     axios.post('https://crudcrud.com/api/d18064bc979b4643bf3be9dea5ef518b/appoinmentData', user)
         .then(response => {
             console.log(response.data);
-            // The user data has been successfully added to the cloud storage.
-            // You can choose to update the UI here, or if you want to keep the existing local storage approach,
-            // you can add the user to local storage as well.
-            addUserToLocalStorage(user);
         })
         .catch(err => {
             console.error(err);

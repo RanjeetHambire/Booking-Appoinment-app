@@ -1,5 +1,5 @@
 function addUserToCloudStorage(user) {
-    axios.post('https://crudcrud.com/api/d18064bc979b4643bf3be9dea5ef518b/appoinmentData', user)
+    axios.post('https://crudcrud.com/api/03da04825c494350abb357182e2a5037/appoinmentData', user)
         .then(response => {
             console.log(response.data);
         })
@@ -12,7 +12,7 @@ function displayUsers() {
     const userList = document.getElementById('userList');
     userList.innerHTML = '';
 
-    axios.get('https://crudcrud.com/api/d18064bc979b4643bf3be9dea5ef518b/appoinmentData')
+    axios.get('https://crudcrud.com/api/03da04825c494350abb357182e2a5037/appoinmentData')
         .then(response => {
             const cloudUsers = response.data;
 
@@ -32,7 +32,7 @@ function displayUsers() {
 }
 
 function deleteUser(index) {
-    axios.get('https://crudcrud.com/api/d18064bc979b4643bf3be9dea5ef518b/appoinmentData')
+    axios.get('https://crudcrud.com/api/03da04825c494350abb357182e2a5037/appoinmentData')
         .then(response => {
             const cloudUsers = response.data;
             
@@ -40,7 +40,7 @@ function deleteUser(index) {
             if (index >= 0 && index < cloudUsers.length) {
                 // Remove the user from the cloud
                 const userIdToDelete = cloudUsers[index]._id; // Assuming each user id
-                axios.delete(`https://crudcrud.com/api/d18064bc979b4643bf3be9dea5ef518b/appoinmentData/${userIdToDelete}`)
+                axios.delete(`https://crudcrud.com/api/03da04825c494350abb357182e2a5037/appoinmentData/${userIdToDelete}`)
                     .then(() => {
                         displayUsers();
                     })
@@ -60,7 +60,7 @@ function editUser(index) {
     const newEmail = prompt('Enter new email:');
     
     if (newEmail) {
-        axios.get('https://crudcrud.com/api/d18064bc979b4643bf3be9dea5ef518b/appoinmentData')
+        axios.get('https://crudcrud.com/api/03da04825c494350abb357182e2a5037/appoinmentData')
             .then(response => {
                 const cloudUsers = response.data;
 
@@ -68,7 +68,7 @@ function editUser(index) {
                 if (index >= 0 && index < cloudUsers.length) {
                     // Update the user's email in the cloud storage 
                     const userIdToUpdate = cloudUsers[index]._id; // Assuming each user object id
-                    axios.put(`https://crudcrud.com/api/d18064bc979b4643bf3be9dea5ef518b/appoinmentData/${userIdToUpdate}`, { email: newEmail })
+                    axios.put(`https://crudcrud.com/api/03da04825c494350abb357182e2a5037/appoinmentData/${userIdToUpdate}`, { email: newEmail })
                         .then(() => {
                             displayUsers();
                         })
